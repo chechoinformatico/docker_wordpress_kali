@@ -1,70 +1,40 @@
-# Instalando WordPress en Kali Linux con Docker
 
-Este repositorio contiene una configuración básica y funcional para levantar un entorno local de **WordPress + MariaDB** usando **Docker Compose**, ideal para pruebas de seguridad, desarrollo web o laboratorios de pentesting.
+# 🚀 Instalación de WordPress en Kali Linux usando Docker
 
----
-
-## 🧰 Requisitos previos
-
-Asegúrate de tener instalado:
-
-```bash
-sudo apt update && sudo apt install docker.io docker-compose git -y📄 Archivo README.md – "Instalando WordPress en Kali Linux con Docker" 
-markdown
-⌄
-# Instalación de WordPress en Kali Linux usando Docker
-
-Guía paso a paso para instalar **WordPress + MariaDB** en **Kali Linux** usando **Docker Compose**. Ideal para pruebas de seguridad, desarrollo web o laboratorios de pentesting.
+Guía paso a paso para instalar **WordPress + MariaDB** en **Kali Linux** usando Docker Compose. Ideal para pruebas de seguridad, desarrollo web o laboratorios de pentesting.
 
 ---
 
-## 🧰 Objetivo
+## 🎯 Objetivo
 
-Crear un entorno local funcional de **WordPress** en **Kali Linux** usando contenedores Docker, sin afectar el sistema principal.
+Crear un entorno local funcional de **WordPress** en **Kali Linux** utilizando contenedores Docker, sin afectar tu sistema principal.
 
 ---
 
 ## 🛠️ Requisitos previos
 
-Asegúrate de tener instalado:
+Asegúrate de tener instalado lo siguiente:
 
-```bash
 sudo apt update && sudo apt install docker.io docker-compose git -y
- 
- 
 
-    Docker : Para correr contenedores aislados.
-    Docker Compose : Para definir múltiples servicios (WordPress + MariaDB).
-    Git : Opcional, para respaldar/configurar este repositorio.
-     
+- Docker: Para ejecutar contenedores aislados.
+- Docker Compose: Para definir múltiples servicios (WordPress + MariaDB).
+- Git (opcional): Para clonar o versionar este repositorio.
 
- 
-📁 Paso 1: Crear una carpeta del proyecto 
+---
 
-Crea y accede a la carpeta donde trabajarás: 
-bash
- 
- 
+## 📁 Paso 1: Crear carpeta del proyecto
+
 mkdir ~/wordpress-docker
 cd ~/wordpress-docker
- 
- 
- 
-📝 Paso 2: Crear el archivo docker-compose.yml 
 
-Ejecuta: 
-bash
- 
- 
+---
+
+## 📝 Paso 2: Crear el archivo docker-compose.yml
 
 nano docker-compose.yml
- 
- 
 
-Y pega este contenido: 
-yaml
- 
- 
+Pega lo siguiente:
 
 version: '3'
 services:
@@ -99,110 +69,62 @@ services:
 volumes:
   db_data:
   wp_data:
- 
- 
 
-Guarda el archivo con Ctrl + O, Enter → Ctrl + X. 
- 
-▶️ Paso 3: Levantar los contenedores 
-
-Desde dentro de la carpeta: 
-bash
- 
- 
-1
-docker-compose up -d
- 
- 
-
-Esto descargará e iniciará dos contenedores: 
-
-    MariaDB  (base de datos)
-    WordPress 
-     
-
-Tu sitio estará disponible en: 
- 
- 
-1
-http://localhost:8000
- 
- 
- 
-🛑 Paso 4: Detener los contenedores 
-
-Cuando termines, detén los contenedores con: 
-bash
- 
- 
-1
-docker-compose down
- 
- 
-
-    ⚠️ No uses docker-compose down -v si no quieres borrar tus datos. 
-     
-
- 
-📦 Archivos incluidos 
-docker-compose.yml
-	
-Configuración de WordPress + MariaDB
- 
- 
- 
-💡 Recomendaciones 
-
-    Este entorno es ideal para pruebas locales o laboratorios de seguridad.
-    Puedes duplicar esta estructura para crear múltiples sitios en distintos puertos.
-    No expongas este entorno públicamente sin protección.
-     
-
- 
-🤝 Créditos 
-
-Creado por @chechoinformatico 
-Para uso personal y educativo. 
- 
- 
-
+Guarda con Ctrl + O, luego Enter, y sal con Ctrl + X.
 
 ---
 
-## ✅ ¿Cómo usarlo?
+## ▶️ Paso 3: Levantar los contenedores
 
-1. Abre tu terminal y ve a tu carpeta:
+docker-compose up -d
 
-```bash
+Esto descargará e iniciará dos contenedores:
+- wordpress-db (MariaDB)
+- wordpress (sitio web)
+
+Accede a tu sitio en:
+
+http://localhost:8000
+
+---
+
+## 🛑 Paso 4: Detener los contenedores
+
+docker-compose down
+
+⚠️ No uses docker-compose down -v si deseas conservar la base de datos.
+
+---
+
+## 📦 Archivos incluidos
+
+| Archivo               | Descripción                          |
+|-----------------------|--------------------------------------|
+| docker-compose.yml    | Configuración de WordPress + MariaDB |
+
+---
+
+## 💡 Recomendaciones
+
+- Este entorno es ideal para pruebas locales o labs de seguridad.
+- Puedes duplicar esta estructura para múltiples sitios cambiando el puerto.
+- No expongas este entorno a internet sin protección.
+
+---
+
+## 📌 Uso con Git
+
 cd ~/wordpress-docker
- 
- 
 
-    Crea el archivo:
-     
-
-bash
- 
- 
-1
 nano README.md
- 
- 
 
-    Pega todo el contenido de arriba  
-
-    Guarda con: 
-     
-
-    Ctrl + O → Enter → Ctrl + X
-     
-
-    Añádelo al repositorio Git:
-     
-
-bash
- 
- 
 git add README.md
 git commit -m "Añadido README.md con guía completa"
 git push -u origin master
+
+---
+
+## 🤝 Créditos
+
+Creado por @chechoinformatico  
+Para uso personal y educativo.
