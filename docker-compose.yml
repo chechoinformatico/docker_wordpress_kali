@@ -1,0 +1,33 @@
+version: '3'
+services:
+  wordpress-db:
+    image: mariadb:latest
+    container_name: wordpress-db
+    environment:
+      MYSQL_ROOT_PASSWORD: admin123
+      MYSQL_DATABASE: wordpress
+      MYSQL_USER: wordpress
+      MYSQL_PASSWORD: wp123
+    volumes:
+      - db_data:/var/lib/mysql
+    restart: no   # ⬅️ Aquí el cambio
+
+  wordpress:
+    image: wordpress:latest
+    container_name: wordpress
+    depends_on:
+      - wordpress-db
+    ports:
+      - "8000:80"
+    environment:
+      WORDPRESS_DB_HOST: wordpress-db
+      WORDPRESS_DB_USER: wordpress
+      WORDPRESS_DB_PASSWORD: wp123
+      WORDPRESS_DB_NAME: wordpress
+    volumes:
+      - wp_data:/var/www/html
+    restart: no   # ⬅️ Aquí también
+
+volumes:
+  db_data:
+  wp_data:
