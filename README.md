@@ -11,29 +11,6 @@ Asegúrate de tener instalado:
 ```bash
 sudo apt update && sudo apt install docker.io docker-compose git -y📄 Archivo README.md – "Instalando WordPress en Kali Linux con Docker" 
 markdown
- 
- 
-1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-⌄
-⌄
-⌄
 ⌄
 # Instalación de WordPress en Kali Linux usando Docker
 
@@ -68,8 +45,6 @@ Crea y accede a la carpeta donde trabajarás:
 bash
  
  
-1
-2
 mkdir ~/wordpress-docker
 cd ~/wordpress-docker
  
@@ -81,7 +56,7 @@ Ejecuta:
 bash
  
  
-1
+
 nano docker-compose.yml
  
  
@@ -90,49 +65,7 @@ Y pega este contenido:
 yaml
  
  
-1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-30
-31
-32
-33
-⌄
-⌄
-⌄
-⌄
-⌄
-⌄
-⌄
-⌄
-⌄
-⌄
+
 version: '3'
 services:
   wordpress-db:
@@ -232,15 +165,7 @@ Creado por @chechoinformatico
 Para uso personal y educativo. 
  
  
-1
-2
-3
-4
-5
-6
-7
-8
-9
+
 
 ---
 
@@ -278,9 +203,6 @@ nano README.md
 bash
  
  
-1
-2
-3
 git add README.md
 git commit -m "Añadido README.md con guía completa"
 git push -u origin master
